@@ -1,0 +1,31 @@
+from selenium import webdriver
+
+import tkinter as tk
+
+def login():
+	brow = webdriver.Firefox(executable_path="/home/space/.local/share/gecko_driver/geckodriver")
+	brow.get('https://www.github.com/login')
+	brow.find_element_by_name("login").send_keys(e1.get())
+	brow.find_element_by_name("password").send_keys(e2.get())
+	brow.find_element_by_name("commit").click()
+
+master = tk.Tk()
+master.title("Git-Login")
+tk.Label(master,text="Username").grid(row=0)
+tk.Label(master,text="Password").grid(row=1)
+
+e1 = tk.Entry(master)
+e2 = tk.Entry(master,show="*")
+
+e1.grid(row=0, column=1)
+e2.grid(row=1, column=1)
+
+tk.Button(master,text='Quit',command=quit).grid(row=3,column=0,sticky=tk.W,pady=4)
+tk.Button(master,text='Login',command=login).grid(row=3,column=1,sticky=tk.W,pady=4)
+
+tk.mainloop()
+
+
+
+root.mainloop()
+
